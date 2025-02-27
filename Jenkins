@@ -9,8 +9,8 @@ pipeline {
         }    
         stage("deploy") {
             steps {
-                   
-                   sh  "pm2 restart react-next || PORT=8080 pm2 start --name react-next --yarn start"
+                   sh "pm2 restart react-next || pm2 start --yarn name react-next --start -p 8080"
+                  
 
             } 
        }    
