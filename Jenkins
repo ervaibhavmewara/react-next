@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages{
+        stage("build") {
+            steps {
+                 sh " yarn install"
+                 sh " yarn build" 
+            }
+        }    
+        stage("deploy") {
+            steps {
+                   sh "pm2 restart "contener name" || pm2 start --yarn name "contener name" --start -p 8080"
+            } 
+       }    
+    }
+
+}
